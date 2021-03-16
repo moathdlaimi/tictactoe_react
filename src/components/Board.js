@@ -9,7 +9,7 @@ const Board = () => {
   const status = 'Next player: X';
 
   return (
-    <div>
+    <div className="board">
       <div className="status">{status}</div>
       <div className="board-row">
         <Square />
