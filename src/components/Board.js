@@ -8,8 +8,8 @@ const Board = () => {
     console.log(i);
     let newValue = value.slice();
     newValue[i] = 'X';
-    setValue(newValue);
     console.log(`newValue = ${newValue}`);
+    setValue(newValue);
   };
 
   const renderSquare = (i) => {
