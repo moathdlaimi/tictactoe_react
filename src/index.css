@@ -20,13 +20,17 @@ ul {
 
 .square {
   background: #fff;
-  border: 3px solid #999;
+  border: 1.5px solid #999;
+  float: left;
   font-size: 24px;
   font-weight: bold;
   line-height: 34px;
-  width: 150px;
   height: 150px;
-  margin: 1px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 150px;
 }
 
 .square:focus {
@@ -40,8 +44,6 @@ ul {
 .game {
   display: flex;
   flex-direction: row;
-  /* border: 3px solid green;
-  padding: 10px; */
   justify-content: center;
 }
 
