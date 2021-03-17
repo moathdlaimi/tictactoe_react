@@ -1,33 +1,39 @@
-import react from 'react';
+import { useState } from 'react';
 import Square from './Square';
 
 const Board = () => {
-  // const renderSquare(i) {
-  //   return <Square />;
-  // }
+  const [value, setValue] = useState(Array(9).fill(null));
 
+  const handelClick = (i) => {
+    console.log(i);
+    let newValue = value.slice();
+    newValue[i] = 'X';
+    setValue(newValue);
+    console.log(`newValue = ${newValue}`);
+  };
+
+  const renderSquare = (i) => {
+    return <Square value={value[i]} onClick={() => handelClick(i)} />;
+  };
   const status = 'Next player: X';
 
   return (
     <div className="board">
       <div className="status">{status}</div>
       <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
+        {renderSquare(0)}
+        {renderSquare(1)}
+        {renderSquare(2)}
       </div>
       <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
+        {renderSquare(3)}
+        {renderSquare(4)}
+        {renderSquare(5)}
       </div>
       <div className="board-row">
-        <Square />
-        <Square />
-        <Square />
-        {/* {renderSquare(6)}
+        {renderSquare(6)}
         {renderSquare(7)}
-        {renderSquare(8)} */}
+        {renderSquare(8)}
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-import react from 'react';
 import Board from './Board';
 
 const Game = () => {
