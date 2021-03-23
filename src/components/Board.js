@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Square from './Square';
+import { Square } from './Square';
 
 const Board = () => {
   const [value, setValue] = useState(Array(9).fill(null));
