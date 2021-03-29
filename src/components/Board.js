@@ -3,19 +3,51 @@ import { Square } from './Square';
 
 const Board = () => {
   const [value, setValue] = useState(Array(9).fill(null));
+  const [turn, setTurn] = useState(true);
+  console.log(turn);
 
   const handelClick = (i) => {
     console.log(i);
     let newValue = value.slice();
-    newValue[i] = 'X';
+    if (calculateWinner(newValue) || newValue[i]) {
+      return;
+    }
+    newValue[i] = turn ? 'X' : 'O';
     console.log(`newValue = ${newValue}`);
     setValue(newValue);
+    setTurn(!turn);
+  };
+  const calculateWinner = (value) => {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (value[a] && value[a] === value[b] && value[a] === value[c]) {
+        return value[a];
+      }
+    }
+    return null;
   };
 
   const renderSquare = (i) => {
     return <Square value={value[i]} onClick={() => handelClick(i)} />;
   };
-  const status = 'Next player: X';
+  const winner = calculateWinner(value);
+  let status;
+  if (winner) {
+    status = `Winner is: ${winner}`;
+  } else {
+    status = `Next Player is: ${turn ? 'X' : 'O'}`;
+  }
+  // const status = `Next player: ${turn ? 'X' : 'O'}`;
 
   return (
     <div className="board">
