@@ -13,6 +13,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Screenshots
 
-![screenshot](https://github.com/moathdlaimi/tictactoe_react/blob/master/src/assets/imgs/Screenshot1.png)
+![screenshot](https://github.com/moathdlaimi/tictactoe_react/blob/master/src/assets/imgs/Screenshot-1.png)
 
-![screenshot](https://github.com/moathdlaimi/tictactoe_react/blob/master/src/assets/imgs/Screenshot2.png)
+![screenshot](https://github.com/moathdlaimi/tictactoe_react/blob/master/src/assets/imgs/Screenshot-2.png)
