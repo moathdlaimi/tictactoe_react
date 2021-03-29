@@ -7,17 +7,17 @@ const Board = () => {
   console.log(turn);
 
   const handelClick = (i) => {
-    console.log(i);
     let newValue = value.slice();
     if (calculateWinner(newValue) || newValue[i]) {
       return;
     }
     newValue[i] = turn ? 'X' : 'O';
     console.log(`newValue = ${newValue}`);
+    console.log(`i is ${i}`);
     setValue(newValue);
     setTurn(!turn);
   };
-  const calculateWinner = (value) => {
+  const calculateWinner = (v) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -29,9 +29,10 @@ const Board = () => {
       [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
+      // console.log(`lines[i] = ${lines[i]}`);
       const [a, b, c] = lines[i];
-      if (value[a] && value[a] === value[b] && value[a] === value[c]) {
-        return value[a];
+      if (v[a] && v[a] === v[b] && v[a] === v[c]) {
+        return v[a];
       }
     }
     return null;
